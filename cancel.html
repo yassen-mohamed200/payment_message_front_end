@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تم إلغاء الدفع</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(239,68,68,0.15) 0%, transparent 70%);
+    top: -200px;
+    right: -100px;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 24px;
+    padding: 48px 40px;
+    max-width: 440px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    position: relative;
+    z-index: 1;
+    animation: fadeUp 0.6s ease-out;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .icon-wrap {
+    width: 88px;
+    height: 88px;
+    margin: 0 auto 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 8px rgba(239,68,68,0.1), 0 8px 24px rgba(239,68,68,0.35);
+    animation: pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
+  }
+
+  @keyframes pop {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+  }
+
+  .icon-wrap svg {
+    width: 40px;
+    height: 40px;
+    stroke: white;
+    stroke-width: 3;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .line1, .line2 {
+    stroke-dasharray: 24;
+    stroke-dashoffset: 24;
+    animation: draw 0.4s ease forwards;
+  }
+  .line1 { animation-delay: 0.5s; }
+  .line2 { animation-delay: 0.65s; }
+
+  @keyframes draw {
+    to { stroke-dashoffset: 0; }
+  }
+
+  h1 {
+    color: #f8fafc;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  p {
+    color: #94a3b8;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+
+  .btn-group {
+    display: flex;
+    gap: 12px;
+  }
+
+  .btn {
+    flex: 1;
+    display: inline-block;
+    padding: 15px;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14.5px;
+    transition: all 0.25s ease;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    box-shadow: 0 8px 20px rgba(239,68,68,0.25);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(239,68,68,0.4);
+  }
+
+  .btn-secondary {
+    background: rgba(255,255,255,0.05);
+    color: #cbd5e1;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255,255,255,0.08);
+  }
+
+  .footer-note {
+    margin-top: 20px;
+    font-size: 12.5px;
+    color: #475569;
+  }
+</style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="icon-wrap">
+      <svg viewBox="0 0 24 24">
+        <path class="line1" d="M6 6l12 12" />
+        <path class="line2" d="M18 6L6 18" />
+      </svg>
+    </div>
+
+    <h1>تم إلغاء عملية الدفع</h1>
+    <p>مفيش أي مبلغ اتخصم من حسابك. تقدر تحاول تاني في أي وقت أو ترجع للمتجر.</p>
+
+    <div class="btn-group">
+      <a href="/checkout" class="btn btn-primary">حاول تاني</a>
+      <a href="/" class="btn btn-secondary">الرئيسية</a>
+    </div>
+
+    <div class="footer-note">لو واجهت مشكلة تواصل مع الدعم الفني</div>
+  </div>
+
+</body>
+</html>
